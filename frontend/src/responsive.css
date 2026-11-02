@@ -1,0 +1,38 @@
+/* Responsive UI layer — no API, route, or business logic changes. */
+*,*::before,*::after{box-sizing:border-box}
+html{width:100%;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body,#root,.App,.App>main{min-width:0;max-width:100%;width:100%}
+.App>main{flex:1;min-width:0}
+img,video,canvas{max-width:100%;height:auto}
+.MuiContainer-root,.MuiGrid-root,.MuiStack-root,.MuiBox-root,.MuiPaper-root,.MuiCard-root{min-width:0}
+.MuiTableContainer-root{max-width:100%;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+.MuiTable-root{width:max-content;min-width:100%}
+.MuiDialog-paper{max-width:calc(100vw - 24px)!important;max-height:calc(100dvh - 24px)!important}
+.MuiDialogContent-root{overflow-wrap:anywhere}
+.MuiTablePagination-toolbar{flex-wrap:wrap;row-gap:8px}
+.MuiMenu-paper{max-width:calc(100vw - 24px)!important;max-height:calc(100dvh - 90px)!important}
+.recharts-responsive-container{min-width:0;max-width:100%}
+@media(max-width:899.98px){
+ .MuiContainer-root{padding-left:16px!important;padding-right:16px!important}
+ .MuiTablePagination-toolbar{justify-content:center;padding:8px}
+ .MuiTablePagination-spacer{display:none}
+ .MuiDialog-paper{margin:12px!important}
+ .MuiTypography-h2{font-size:clamp(1.65rem,6vw,2.8rem)!important;line-height:1.18!important}
+ .MuiTypography-h3{font-size:clamp(1.5rem,5vw,2.4rem)!important;line-height:1.2!important}
+ .MuiTypography-h4{font-size:clamp(1.3rem,4.5vw,2rem)!important;line-height:1.25!important}
+ .MuiButton-root{max-width:100%;white-space:normal;overflow-wrap:break-word}
+ .MuiFormControl-root,.MuiTextField-root{max-width:100%;min-width:0}
+}
+@media(max-width:599.98px){
+ .MuiTablePagination-actions{margin-left:0}
+ .MuiAlert-root{max-width:100%}
+ .MuiSnackbar-root{max-width:calc(100vw - 24px)}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Admin pages do not render the public fixed navbar. */
+.App:has(.uniform-admin-shell){padding-top:0}
+@media(max-width:899.98px){
+ .MuiPaper-root{max-width:100%}
+ .MuiFormControl-root.MuiFormControl-fullWidth{width:100%}
+}

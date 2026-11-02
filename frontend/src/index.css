@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 64px; /* Add this line - matches navbar height */
+}
+
+/* Remove overflow-x: hidden to allow scrolling */
+/* Uniform Request landing page: safer sizing at narrow viewport widths. */
+*, *::before, *::after { box-sizing: border-box; }
+@media (max-width: 599px) {
+  .uniform-home-hero .MuiGrid-container { margin-left: 0; margin-top: 0; }
+  .uniform-home-hero .MuiGrid-item { min-width: 0; }
+}
+
+
+/* PHINMA Uniform Request — Login / Register page visuals only */
+.uniform-auth-page { isolation: isolate; }
+.uniform-auth-page::before,
+.uniform-auth-page::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.uniform-auth-page::before {
+  height: min(25vh, 220px);
+  background: #cce8fd;
+  clip-path: ellipse(78% 54% at 22% 100%);
+}
+.uniform-auth-page::after {
+  height: min(12vh, 100px);
+  background: linear-gradient(105deg, #88c3f6 0%, #d0eaff 67%, #0071a5 86%, #ffc82e 100%);
+  clip-path: polygon(0 30%, 20% 58%, 45% 89%, 65% 100%, 81% 75%, 100% 20%, 100% 100%, 0 100%);
+}
+.uniform-auth-card {
+  position: relative;
+  box-shadow: 0 14px 38px rgba(20, 62, 115, 0.14) !important;
+}
+.uniform-auth-brand-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.uniform-auth-shirt-circle {
+  margin: 0 auto;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #e2f1ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.uniform-auth-shirt {
+  width: 92px;
+  height: 112px;
+  object-fit: contain;
+}
+.uniform-auth-flourish {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 38%;
+  object-fit: fill;
+  object-position: left bottom;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 899px) {
+  .uniform-auth-shirt-circle { width: 90px; height: 90px; }
+  .uniform-auth-shirt { width: 68px; height: 80px; }
+  .uniform-auth-flourish { max-height: 28%; }
+  .uniform-auth-brand-content { padding-bottom: 24px; }
+}
+@media (max-width: 420px) {
+  .uniform-auth-page { padding-left: 12px !important; padding-right: 12px !important; }
+  .uniform-auth-card { border-radius: 18px !important; }
+}
+
+/* Subtle vertical divider between branding and the login/register form.
+   Hidden on mobile where the two sections stack vertically. */
+@media (min-width: 900px) {
+  .uniform-auth-card .uniform-auth-brand::after {
+    content: '';
+    position: absolute;
+    top: 7%;
+    bottom: 7%;
+    right: 0;
+    width: 1px;
+    background: #c4c4c4;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
